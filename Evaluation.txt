@@ -1,0 +1,155 @@
+
+
+
+
+--1.DIFFERENCE BETWEEEN LOCAL AND GLOBAL TEMPERARY TABLES
+         --LOCAL TEMPERARY TABLE:  
+		             --local temperary table is using values for inside table only and data types inside the table.
+		----GLOBAL TEMPERARY TABLE:
+		             --Global temperary table is used for all values in all data types inside of the program.
+
+
+
+----2.CHECK constraint
+        ---Constraint is nothing but foregin key or primarey key .
+
+-----3.when ever button is click the Access is accure.
+
+-----5.commit-End
+       --rollback-undo the insert query sql
+----7. connecting two tables
+        -- 1.inner joint
+		-- 2.left joint
+		 --3.cross joint
+		 --4.right joint
+		 --5.self joint
+----8.primary key connected into foreign key
+
+
+---10.clustered index stored in database
+
+-------Write an SQL query to clone a new table from another table
+
+create database clone 
+use clone
+
+create table table1
+(
+Cid int,
+Cname varchar(30)
+)
+
+insert into table1 values(1,'monica')
+insert into table1 values(2,'gurumoorthi')
+insert into table1 values(3,'vinothini')
+
+select *from table1
+
+select synonym for t2 from table1 
+
+
+select*from t2
+
+
+----Write an SQL query to print the FIRST_NAME and LAST_NAME from Worker table into a single column COMPLETE_NAME.
+---A space char should separate them.
+
+use clone
+
+create table Worker
+(
+workerid int,
+first_name varchar(30),
+last_name varchar(30),
+salary int,
+joining_date varchar(30),
+Department varchar(30)
+
+)
+
+insert into Worker values(001,'Monika','Arora',100000,'2014-02-20 09:00:00','HR')
+insert into Worker values(002,'Niharika','Verma',80000,'2014-06-11 09:00:00','Admin')
+insert into Worker values(003,'Vishal','Singhal',300000,'2014-02-20 09:00:00','HR')
+insert into Worker values(004,'Amitabh','Singh',500000,'2014-02-20 09:00:00','Admin')
+insert into Worker values(005,'Vivek','Bhati',500000,'2014-06-11 09:00:00','Admin')
+insert into Worker values(006,'Vipul','Diwan',200000,'2014-06-11 09:00:00','Account')
+insert into Worker values(007,'Satish','Kumar',75000,'2014-01-20 09:00:00','Account')
+insert into Worker values(008,	'Geetika','Chauhan',90000,'2014-04-11 09:00:00','Admin')
+
+
+select* from worker
+alter table worker add Complete_name varchar(30)
+select CONCAT(first_name,last_name) from worker
+
+
+--------Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending.
+
+
+use clone
+
+select* from worker
+
+select*from worker order by first_name 
+
+-----Write an SQL query to print details of the Workers whose SALARY lies between 100000 and 500000.
+
+select* from worker
+
+select * from worker where salary between 100000 and 500000
+
+--------Write an SQL query to fetch the no. of workers for each department in the descending order.
+
+select *from worker order by Department desc
+ 
+
+ ----Create a DML trigger for update on table ‘Title
+
+ ---insert,delete ,update
+ --insert into Worker values(008,'kaviya','muthu',1000000,'2014-02-20 09:00:00','HR','kaviyamuthu')
+ create trigger trg_update
+ on worker
+ for update
+ as
+ begin
+     insert,delete
+end
+
+select*from worker 
+insert into Worker values(008,'kaviya','muthu',1000000,'2014-02-20 09:00:00','HR','kaviyamuthu')
+delete from worker table where workerid = 001
+
+select table worker modify by worker=title
+
+-----Create a Stored Procedure to retrieve the average salary from ‘Worker’ table using Output parameter
+select avg(salary) as 'average salary 'from worker
+
+---Create a filtered index on ‘Bonus_Date’ column in ‘Bonus’ table
+
+
+---⦁	Create an explicit transaction to commit insert statements and rollback delete statements in ‘Worker’ table
+
+
+begin transaction 
+insert into values(008,'kaviya','muthu',1000000,'2014-02-20 09:00:00','HR','kaviyamuthu')
+save transaction insert_stat
+delete from worker where workerid=003
+drollback transaction insert_stat
+commit transaction
+
+
+
+
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
